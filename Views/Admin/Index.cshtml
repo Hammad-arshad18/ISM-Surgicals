@@ -1,5 +1,5 @@
 ﻿@using _072_HammadArshad_Task1.Models
-@model Tuple<List<Contact>,List<Product>>
+@model Tuple<List<Contact>, List<Product>>
 @{
     ViewBag.Title = "Admin";
 }
@@ -45,37 +45,37 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
     @*Products Handling*@
-<section class="products-handle my-3">
-    <h1 class="text-center">Products List</h1>
-    <a class="btn btn-outline-primary" asp-controller="admin" asp-action="addproduct">Add Product</a>
-    @if (Model.Item2.Count > 0)
-    {
-        <div class="table-responsive my-2">
-            <table class="table table-striped table-bordered text-center">
-                <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-                </tr>
-                @foreach (var item in Model.Item2)
-                {
+    <section class="products-handle my-3">
+        <h1 class="text-center">Products List</h1>
+        <a class="btn btn-outline-primary" asp-controller="admin" asp-action="addproduct">Add Product</a>
+        @if (Model.Item2.Count > 0)
+        {
+            <div class="table-responsive my-2">
+                <table class="table table-striped table-bordered text-center">
                     <tr>
-                        <td>@item.product_name</td>
-                        <td>@item.product_price</td>
-                        <td><a class="btn btn-outline-success" asp-controller="shop" asp-action="shopedit" asp-route-Id="@item.Id">Edit</a></td>
-                        <td><a class="btn btn-outline-danger" asp-controller="shop" asp-action="ShopDelete" asp-route-Id="@item.Id">Delete</a></td>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
-                }
-            </table>
-        </div>
-    }
-    else
-    {
-        <h4 class="text-center">No Data Found</h4>
-    }
-</section>
-    </div>
+                    @foreach (var item in Model.Item2)
+                    {
+                        <tr>
+                            <td>@item.product_name</td>
+                            <td>@item.product_price</td>
+                            <td><a class="btn btn-outline-success" asp-controller="shop" asp-action="shopedit" asp-route-Id="@item.Id">Edit</a></td>
+                            <td><a class="btn btn-outline-danger" asp-controller="shop" asp-action="ShopDelete" asp-route-Id="@item.Id">Delete</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+        else
+        {
+            <h4 class="text-center">No Data Found</h4>
+        }
+    </section>
+</div>

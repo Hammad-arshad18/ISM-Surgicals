@@ -1,6 +1,6 @@
 ﻿@using _072_HammadArshad_Task1.Models
 @model Product
-@{ 
+@{
     ViewBag.Title = "Shop Now";
 }
 
@@ -11,7 +11,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-4 align-self-center">
-                <img src="@Model.product_image" alt="@Model.product_name" class="img-fluid" />
+                <img src="@Model.product_image" alt="@Model.product_name" class="img-fluid small-image" />
             </div>
             <div class="col-md-6">
                 <h4>@Model.product_name</h4>
@@ -24,4 +24,12 @@
         </div>
     </div>
 </section>
+
+@section ImageZoom{
+        $(document).ready(function () {
+            $(".small-image").imagezoomsl({
+                zoomrange: [3, 3]
+            });
+        });
+}
 
