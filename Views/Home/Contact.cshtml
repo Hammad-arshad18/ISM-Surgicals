@@ -37,18 +37,22 @@
                     <label for="uname" class="form-text">Full Name</label>
                     <input type="text" class="form-control" name="uname" id="uname" required
                            placeholder="Hammad Arshad">
+                    <div class="invalid-feedback">Required!</div>
                     <label for="uemail" class="form-text">Email</label>
                     <input type="email" class="form-control" name="uemail" id="uemail" required
                            placeholder="xyz@example.com">
+                    <div class="invalid-feedback">Required!</div>
                     <label for="uphone" class="form-text">Phone No</label>
                     <input type="text" class="form-control" name="uphone" id="uphone" required
-                           placeholder="xxx-xxxxxxx">
+                           pattern="[0-9]{2}-[0-9]{3}-[0-9]{7}" placeholder="92-332-8432678">
+                    <div class="invalid-feedback">Required! Enter Valid Pattern Like 92-332-8432678</div>
                     <label class="form-text" for="option_feedback">Select type of Feedback</label>
                     <select name="ofeedback" id="option_feedback" class="form-select">
                         <option value="disable" selected disabled>Select</option>
                         <option value="Good">Good</option>
                         <option value="Bad">Bad</option>
                     </select>
+                    <div class="invalid-feedback">Required!</div>
                     <div class="gender-section">
                         <div class="row">
                             <div class="col-2">
