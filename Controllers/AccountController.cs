@@ -55,10 +55,12 @@ namespace _072_HammadArshad_Task1.Controllers
                     {
                         ModelState.AddModelError("", errorsMessage.Description);
                     }
+                    return View(register);
                 }
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Account");
             }
             return View(register);
+            
         }
 
         public async Task<IdentityResult> CreateUserAsync(Register registeruser)
