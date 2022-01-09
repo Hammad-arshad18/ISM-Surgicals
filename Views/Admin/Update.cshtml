@@ -1,0 +1,84 @@
+﻿@using _072_HammadArshad_Task1.Models
+@model Contact
+@{
+    ViewBag.Title = "Update Contact";
+}
+
+<div class="update-contact container py-3 my-2">
+    <h3 class="text-center text-uppercase">@Model.uname Details</h3>
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-6">
+            @using (Html.BeginForm("update", "admin", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(x => x.uname, new { @class = "form-text" })
+                    @Html.TextBoxFor(x => x.uname, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.uname)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.uemail, new { @class = "form-text" })
+                    @Html.TextBoxFor(x => x.uemail, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.uemail)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.uphone, new { @class = "form-text" })
+                    @Html.TextBoxFor(x => x.uphone, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.uphone)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ofeedback, new { @class = "form-text" })
+                    <select name="ofeedback" id="ofeedback" class="form-select">
+                        <option value="disable" selected disabled>Select</option>
+                        <option value="Good">Good</option>
+                        <option value="Bad">Bad</option>
+                    </select>
+                    @Html.ValidationMessageFor(x=>x.ofeedback)
+                </div><div class="form-group py-2">
+                    <div class="gender-section">
+                        <div class="row">
+                            <div class="col-2">
+                                <label class="form-text">Gender</label>
+                            </div>
+                            @if (Model.gender == "Male")
+                            {
+                                <div class="col-2 col-md-3 col-lg-2 text-center">
+                                    <input type="radio" value="Male" name="gender" checked class="btn-check" id="male" required>
+                                    <label for="male" class="btn btn-outline-danger">Male</label>
+                                </div>
+                                <div class="col-2 col-md-3 col-lg-2 text-center">
+                                    <input type="radio" value="Female" name="gender" class="btn-check" id="female" required>
+                                    <label for="female" class="btn btn-outline-success">Female</label>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-2 col-md-3 col-lg-2 text-center">
+                                    <input type="radio" value="Male" name="gender" class="btn-check" id="male" required>
+                                    <label for="male" class="btn btn-outline-danger">Male</label>
+                                </div>
+                                <div class="col-2 col-md-3 col-lg-2 text-center">
+                                    <input type="radio" value="Female" name="gender" checked class="btn-check" id="female" required>
+                                    <label for="female" class="btn btn-outline-success">Female</label>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="agreement" class="form-check-input" id="agreement">
+                    @Html.LabelFor(x => x.agreement, new { @class = "form-text" })
+                <div>
+                    @Html.ValidationMessageFor(x => x.agreement)
+                </div>
+                </div>
+                <div class="update-form-btn">
+                    <button class="btn btn-success"><i class="far fa-check-circle"></i> Update</button>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+

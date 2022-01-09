@@ -1,0 +1,44 @@
+﻿@model _072_HammadArshad_Task1.Models.Login
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<section class="Login_form">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-5 order-md-first my-2 order-last align-self-center">
+                <h2 class="text-center my-2">Login</h2>
+                <form asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="username" class="form-text"></label>
+                        <input asp-for="username" class="form-control" />
+                        <span asp-validation-for="username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="password" class="form-text"></label>
+                        <input asp-for="password" class="form-control" />
+                        <span asp-validation-for="password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-text">
+                            <input class="form-check-input" asp-for="remember" /> @Html.DisplayNameFor(model => model.remember)
+                        </label>
+                    </div>
+                    <div class="login-btn">
+                        <button class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 order-md-last order-first">
+                <img src="/images/signup.png" class="img-fluid" alt="Alternate Text" />
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+

@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Contact Us";
+}
+<!--Contact Us-->
+<section class="contact-us">
+    <div class="container">
+        <div class="form-heading">
+            <h1>Contact Us</h1>
+        </div>
+        <div class="row">
+            <div class="col-md align-self-center">
+                @if (ViewBag.formsubmit == true)
+                {
+                    <section class="form-card shadow">
+                        <div class="container">
+                            <div class="image-portion">
+                                <img class="img-fluid" src="/images/dummy_image.png" alt="Person Image">
+                            </div>
+                            <div class="details-portion">
+                                <h3>@ViewBag.name</h3>
+                                <h6>@ViewBag.email</h6>
+                                <h6>@ViewBag.phone</h6>
+                                <p>@ViewBag.gender</p>
+                                <a class="btn btn-success">@ViewBag.feedback</a>
+                            </div>
+                        </div>
+                    </section>
+                }
+                else
+                {
+                    <img src="/images/contact-img.png" class="img-fluid" alt="Contact Us Page">
+                }
+            </div>
+            <div class="col-md">
+                <form action="/home/contact" method="post" class="user-select-none needs-validation" novalidate autocomplete="off">
+                    @Html.AntiForgeryToken()
+                    <label for="uname" class="form-text">Full Name</label>
+                    <input type="text" class="form-control" name="uname" id="uname" required
+                           placeholder="Hammad Arshad">
+                    <label for="uemail" class="form-text">Email</label>
+                    <input type="email" class="form-control" name="uemail" id="uemail" required
+                           placeholder="xyz@example.com">
+                    <label for="uphone" class="form-text">Phone No</label>
+                    <input type="text" class="form-control" name="uphone" id="uphone" required
+                           placeholder="xxx-xxxxxxx">
+                    <label class="form-text" for="option_feedback">Select type of Feedback</label>
+                    <select name="ofeedback" id="option_feedback" class="form-select">
+                        <option value="disable" selected disabled>Select</option>
+                        <option value="Good">Good</option>
+                        <option value="Bad">Bad</option>
+                    </select>
+                    <div class="gender-section">
+                        <div class="row">
+                            <div class="col-2">
+                                <label class="form-text">Gender</label>
+                            </div>
+                            <div class="col-2 col-md-3 col-lg-2 text-center">
+                                <input type="radio" value="Male" name="gender" class="btn-check" id="male" required>
+                                <label for="male" class="btn btn-outline-danger">Male</label>
+                            </div>
+                            <div class="col-2 col-md-3 col-lg-2 text-center">
+                                <input type="radio" value="Female" name="gender" class="btn-check" id="female" required>
+                                <label for="female" class="btn btn-outline-success">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="checkbox" name="agreement" class="form-check-input" id="agreement" required>
+                    <label for="agreement" class="form-check-label">Do You Want To Submit This Form</label>
+                    <div class="submit-btn">
+                        <button class="btn btn-success"><i class="far fa-check-circle"></i> Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section ValidationBootstrap{
+    (function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+    if (!form.checkValidity()) {
+    event.preventDefault()
+    event.stopPropagation()
+    }
+    form.classList.add('was-validated')
+    }, false)
+    })
+    })()
+}

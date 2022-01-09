@@ -1,0 +1,37 @@
+﻿@using _072_HammadArshad_Task1.Models
+@model List<Product>
+@{
+    ViewBag.Title = "Products";
+}
+
+<section class="product py-4 my-2">
+    <div class="container">
+        @if (Model.Count > 0)
+        {
+            <div class="text-center">
+                <h1>Feature Products</h1>
+            </div>
+            <div class="row justify-content-center">
+                @foreach (Product p_item in Model)
+                {
+                    <div class="col-10 col-md-3 col-sm-5 text-center border border-1 shadow-sm">
+                        <img src="@p_item.product_image" alt="Images" class="img-fluid">
+                        <div class="product-text">
+                            <h4>@p_item.product_name</h4>
+                            <p><span class="product-price">$@p_item.product_price</span> Only</p>
+                            <a href="/shop/shopnow/@p_item.Id" class="btn btn-danger"> Shop now</a>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-3">
+                <h1>No Product Available Right Now</h1>
+            </div>
+        }
+
+    </div>
+</section>

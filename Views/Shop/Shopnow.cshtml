@@ -1,0 +1,27 @@
+﻿@using _072_HammadArshad_Task1.Models
+@model Product
+@{ 
+    ViewBag.Title = "Shop Now";
+}
+
+<section class="shop-now">
+    <div class="container">
+        <div class="product-heading text-center my-4">
+            <h1>@Model.product_name</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4 align-self-center">
+                <img src="@Model.product_image" alt="@Model.product_name" class="img-fluid" />
+            </div>
+            <div class="col-md-6">
+                <h4>@Model.product_name</h4>
+                <p>@Model.product_desciption</p>
+                <h5><span class="text-danger">$@Model.product_price</span> Only</h5>
+                <div class="Add-cart">
+                    <button class="btn btn-danger"><i class="far fa-shopping-cart"></i> Add To Card</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

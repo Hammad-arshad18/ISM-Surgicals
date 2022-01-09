@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ISM - @ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="~/js/jQuery.js"></script>
+</head>
+<body>
+    <div class="loader">
+        <div class="circle"></div>
+    </div>
+
+    <div class="main-content">
+        <!--News Messsage For Users-->
+        <div class="news shadow-sm">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md col-6">
+                        <p>
+                            <a href="tel:+923328432678">
+                                <i class="far fa-phone"></i> Mob: +92 332
+                                8432678
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-md col-6">
+                        <p>
+                            <a href="mailto:hammad.arshad672@gmail.com">
+                                <i class="far fa-envelope"></i>
+                                E-mail:
+                                hammad.arshad672@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--NavBar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-md-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" asp-action="Index" asp-controller="Home"><img src="~/images/logo.png" class="img-fluid" alt="ISM Surgicals"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+                        aria-controls="offcanvasWithBackdrop">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Index" asp-controller="Home" aria-current="page"><i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Index" asp-controller="Shop"><i class="fas fa-shopping-bag"></i> Shop Now</a>
+                        </li>
+                        @*<li class="nav-item dropdown">
+                            <a class="nav-link" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown hover" aria-expanded="false">
+                                <i class="fas fa-list"></i> Categories
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Category1</a></li>
+                                <li><a class="dropdown-item" href="#">Category2</a></li>
+                                <li><a class="dropdown-item" href="#">Category3</a></li>
+                            </ul>
+                        </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Contact" asp-controller="Home"><i class="fas fa-address-book"></i> Contact Us</a>
+                        </li>
+                        <partial name="_LoginInfo" />
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop"
+             aria-labelledby="offcanvasWithBackdropLabel">
+            <div class="offcanvas-header ">
+                <a asp-controller="Home" asp-action="Index">
+                    <h5 class="offcanvas-title shadow-sm" id="offcanvasWithBackdropLabel">
+                        ISM <span class="c_surgical">SURGICALS</span>
+                    </h5>
+                </a>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Shop" asp-action="Index"><i class="fas fa-shopping-bag"></i> Shop Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" dropdown-toggle type="button" id="dropdownMenuButton1"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-list"></i> Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Category1</a></li>
+                            <li><a class="dropdown-item" href="#">Category2</a></li>
+                            <li><a class="dropdown-item" href="#">Category3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Contact"><i class="fas fa-address-book"></i> Contact Us</a>
+                    </li>
+                    <partial name="_LoginInfo" />
+                </ul>
+            </div>
+
+            <div class="footer-canvas">
+                <p>&copy Copyright @DateTime.Now.Year || <a href="https://usktinfo.000webhostapp.com/" target="_blank">Hammad Arshad</a></p>
+            </div>
+        </div>
+
+        <!--Main Body-->
+        <div class="main-body">
+            @RenderBody()
+        </div>
+
+        <!--Footer Portion-->
+        <section class="footer-p">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-11 col-md-3 offset-1">
+                        <h4>Useful links</h4>
+                        <ul>
+                            <li><a asp-controller="Home" asp-action="Index"><i class="far fa-chevron-right"></i> Home</a></li>
+                            <li><a asp-controller="Shop" asp-action="Index"><i class="far fa-chevron-right"></i> Shop</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-11 col-md-3 offset-1">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><a href=""><i class="far fa-chevron-right"></i> Services</a></li>
+                            <li><a href=""><i class="far fa-chevron-right"></i> Home</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-11 col-md-3 offset-1">
+                        <h4>Contact us</h4>
+                        <ul>
+                            <li><a asp-controller="Home" asp-action="Contact"><i class="far fa-chevron-right"></i> Contact us</a></li>
+                            <li><a asp-controller="Home" asp-action="About"><i class="far fa-chevron-right"></i> About us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center copyright-portion">
+                    <p>&copy; Copyright @DateTime.Now.Year Hammad Arshad All Rights Reserved</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--Scripts-->
+    <script src="~/js/bootstrap.bundle.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+            AOS.init();
+            document.addEventListener("contextmenu", e => e.preventDefault());
+            $(".loader").fadeOut(1000);
+            $(".main-content").fadeIn(1000);
+            @RenderSection("ValidationBootstrap",required:false)
+    </script>
+
+</body>
+</html>

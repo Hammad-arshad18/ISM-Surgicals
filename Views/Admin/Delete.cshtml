@@ -1,0 +1,23 @@
+﻿@using _072_HammadArshad_Task1.Models
+@model Contact
+@{
+    ViewBag.Title = "Delete Contact";
+}
+<section class="form-card shadow my-3">
+    <div class="container text-center">
+        <h6 class="text-danger">Are You Sure You Want To Delete</h6>
+        <div class="image-portion">
+            <img class="img-fluid" src="/images/dummy_image.png" alt="Person Image">
+        </div>
+        <div class="details-portion">
+            <h3>@Model.uname</h3>
+            <h6>@Model.uemail</h6>
+            <h6>@Model.uphone</h6>
+            <h6>@Model.ofeedback Feedback</h6>
+            <h6>@Model.gender</h6>
+            <form action="/admin/delete/@Model.Id" method="post">
+                <button class="btn btn-outline-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+</section>

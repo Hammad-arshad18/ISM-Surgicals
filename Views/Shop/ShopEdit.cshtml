@@ -1,0 +1,46 @@
+﻿@using _072_HammadArshad_Task1.Models
+@model Product
+@{
+    ViewBag.Title = "Update Product";
+}
+
+<div class="container py-3">
+    <!--Add Products Section-->
+    <section class="add-products py-3 my-2">
+        <h2 class="text-center">Edit Product</h2>
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-6">
+                <div class="text-center">
+                    <img src="@Model.product_image" class="img-fluid" alt="Alternate Text" />
+                </div>
+                <form asp-action="ShopEdit" asp-controller="Shop" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label asp-for="product_name" class="form-text">Name</label>
+                        <input asp-for="product_name" class="form-control">
+                        <span asp-validation-for="product_name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="product_price" class="form-text">Price</label>
+                        <input asp-for="product_price" class="form-control">
+                        <span asp-validation-for="product_price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-text" asp-for="image">Image</label>
+                        <input class="form-control" asp-for="image" accept="image/*">
+                        <span asp-validation-for="image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="product_desciption" class="form-text">Description</label>
+                        <textarea asp-for="product_desciption" class="form-control" cols="10" rows="5"></textarea>
+                        <span asp-validation-for="product_desciption" class="text-danger"></span>
+                    </div>
+                    <div class="add-product">
+                        <button class="btn btn-success">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+
