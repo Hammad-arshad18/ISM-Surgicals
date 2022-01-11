@@ -111,6 +111,9 @@
             @RenderBody()
         </div>
 
+        <div>
+            <a href="#" class="to-top" ><i class="fas fa-angle-up"></i></a>
+        </div>
         <!--Footer Portion-->
         <section class="footer-p">
             <div class="container">
@@ -155,6 +158,9 @@
             $(".main-content").fadeIn(1000);
             @RenderSection("ValidationBootstrap", required: false)
             @RenderSection("ImageZoom", required: false)
+            $(window).scroll(function () {
+                $(window).scrollTop() > 100 ? $(".to-top").fadeIn() : $(".to-top").fadeOut();
+            });
     </script>
 
 </body>
