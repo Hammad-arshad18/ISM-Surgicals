@@ -1,4 +1,6 @@
-﻿@{
+﻿@using _072_HammadArshad_Task1.Models
+@model List<Product>
+@{
     ViewBag.Title = "HomePage";
 }
 
@@ -67,46 +69,48 @@
 </section>
 
 <!--Feature Products-->
-<section class="feature-products" data-aos="fade-up" data-aos-delay="300">
-    <div class="container">
-        <div class="text-center">
-            <h1>Popular Products</h1>
+@if (Model.Count > 0)
+{
+    <section class="feature-products" data-aos="fade-up" data-aos-delay="300">
+        <div class="container">
+            <div class="text-center">
+                <h1>Popular Products</h1>
+            </div>
+            <div class="row justify-content-center">
+                @foreach (Product products in Model)
+                {
+                    <div class="col-md-2 shadow-sm">
+                        <div class="product-image border border-2 text-center">
+                            <img src="@products.product_image" alt="Products" class="img-fluid">
+                        </div>
+                        <p>@products.product_name</p>
+                        <div class="view-details-btn">
+                            <a asp-controller="Shop" asp-action="Shopnow" asp-route-Id="@products.Id" class="btn btn-outline-success">Shop</a>
+                        </div>
+                    </div>
+
+                }
+                @*
+                    <div class="col-md-2 shadow-sm">
+                        <div class="product-image border border-2 text-center">
+                            <img src="images/s3.jpg" alt="Products" class="img-fluid">
+                        </div>
+                        <p>Super Scissor</p>
+                        <div class="view-details-btn">
+                            <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-success">Visit Shop</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 shadow-sm">
+                        <div class="product-image border border-2 text-center">
+                            <img src="images/s4.jpg" alt="Products" class="img-fluid">
+                        </div>
+                        <p>Buck</p>
+                        <div class="view-details-btn">
+                            <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-success">Visit Shop</a>
+                        </div>
+                    </div>*@
+            </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md-2 shadow-sm">
-                <div class="product-image border border-2 text-center">
-                    <img src="images/s1.jpg" alt="Products" class="img-fluid">
-                </div>
-                <p>Hair Cutting Scissor</p>
-                <div class="view-details-btn">
-                    <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-success">Visit Shop</a>
-                </div>
-            </div>
-            <div class="col-md-2 shadow-sm">
-                <div class="product-image border border-2 text-center">
-                    <img src="images/s2.jpg" alt="Products" class="img-fluid">
-                </div>
-                <p>Pushers</p>
-                <div class="view-details-btn">
-                    <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-success">Visit Shop</a>                </div>
-            </div>
-            <div class="col-md-2 shadow-sm">
-                <div class="product-image border border-2 text-center">
-                    <img src="images/s3.jpg" alt="Products" class="img-fluid">
-                </div>
-                <p>Super Scissor</p>
-                <div class="view-details-btn">
-                    <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-success">Visit Shop</a>                </div>
-            </div>
-            <div class="col-md-2 shadow-sm">
-                <div class="product-image border border-2 text-center">
-                    <img src="images/s4.jpg" alt="Products" class="img-fluid">
-                </div>
-                <p>Buck</p>
-                <div class="view-details-btn">
-                    <a asp-controller="Shop" asp-action="Index" class="btn btn-outline-success">Visit Shop</a>                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+}
 

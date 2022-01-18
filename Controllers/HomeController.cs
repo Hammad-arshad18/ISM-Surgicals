@@ -1,6 +1,8 @@
 ﻿using _072_HammadArshad_Task1.Data;
 using _072_HammadArshad_Task1.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace _072_HammadArshad_Task1.Controllers
@@ -12,9 +14,9 @@ namespace _072_HammadArshad_Task1.Controllers
         {
             _db = dbContext;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _db.Products.Take(4).ToListAsync());
         }
         public IActionResult Contact()
         {
