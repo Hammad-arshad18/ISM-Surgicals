@@ -27,6 +27,11 @@
                         <span asp-validation-for="image" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label class="form-text" asp-for="CategoriesId">Category</label>
+                        <select class="form-select" asp-for="CategoriesId" asp-items="@ViewBag.Categories"></select>
+                        <span asp-validation-for="image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="product_desciption" class="form-text">Description</label>
                         <textarea asp-for="product_desciption" class="form-control" cols="10" rows="5"></textarea>
                         <span asp-validation-for="product_desciption" class="text-danger"></span>

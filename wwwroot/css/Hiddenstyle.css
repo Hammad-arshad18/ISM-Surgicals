@@ -532,7 +532,7 @@
             box-shadow: 0 0 0 0.25rem rgba(240, 128, 128, 0.1) !important;
         }
 
-.add-products form input:focus, .add-products form textarea:focus {
+.add-products form input:focus, .add-products form textarea:focus, .add-products form select:focus {
     border-color: lightcoral !important;
     box-shadow: 0 0 0 0.25rem rgba(240, 128, 128, 0.1) !important;
 }
@@ -620,12 +620,12 @@
         border-color: lightcoral !important;
         transition: 0.4s;
         width: 100%;
+        box-shadow: none !important;
     }
 
         .Login_form form .login-btn button:hover {
             background-color: lightcoral !important;
-            color: white;
-            box-shadow: 0 0 0 0.25rem rgba(240, 128, 128, 0.1) !important;
+            color: white; 
         }
 
 .Login_form form input:focus, .add-products form textarea:focus {
@@ -701,7 +701,51 @@
     }
 
 
-.search-section .row .col-10 form input:focus{
+.search-section .row .col-12 form input:focus{
+    border-color: lightcoral !important;
+    box-shadow: 0 0 0 0.25rem rgba(240, 128, 128, 0.1) !important;
+}
+.search-section .row .col-6{
+    margin:10px 0
+}
+    .search-section .row .col-6 a {
+        background-color: white !important;
+        color: lightcoral;
+        border-color: lightcoral !important;
+        transition: 0.4s;
+        width: 100%;
+    }
+        .search-section .row .col-6 a:hover {
+            background-color: lightcoral !important;
+            color: white;
+            box-shadow: 0 0 0 0.25rem rgba(240, 128, 128, 0.1) !important;
+        }
+
+.category .text-center img {
+    height: 200px;
+}
+.category form {
+    margin: 10px 0;
+}
+    .category form .add-category{
+        margin:15px 0;
+    }
+        .category form .add-category button {
+            background-color: white !important;
+            color: lightcoral;
+            border-color: lightcoral !important;
+            transition: 0.4s;
+            width: 100%;
+            box-shadow: none !important;
+        }
+
+        .category form .add-category button:hover {
+            background-color: lightcoral !important;
+            color: white;
+            
+        }
+
+.category form input:focus {
     border-color: lightcoral !important;
     box-shadow: 0 0 0 0.25rem rgba(240, 128, 128, 0.1) !important;
 }

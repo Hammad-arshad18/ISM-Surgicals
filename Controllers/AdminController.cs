@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -141,6 +142,7 @@ namespace _072_HammadArshad_Task1.Controllers
 
         public IActionResult AddProduct()
         {
+            ViewBag.Categories = new SelectList(_db.Categories, "Id", "Category");
             return View();
         }
         [HttpPost]
@@ -169,6 +171,24 @@ namespace _072_HammadArshad_Task1.Controllers
             Product_list = await _db.Products.Where(s=>s.product_name.Contains(search)).ToListAsync();
             var ModelsTuple = new Tuple<List<Contact>, List<Product>>(Contact_list, Product_list);
             return View(ModelsTuple);
+        }
+
+        public IActionResult AddCategory()
+        {
+            return View();
+        }
+
+        [HttpPost,ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddCategory(Categories categories)
+        {
+            if (ModelState.IsValid)
+            {
+                await _db.Categories.AddAsync(categories);
+                await _db.SaveChangesAsync();
+                ModelState.Clear();
+                return RedirectToAction("AddCategory","Admin");
+            }
+            return View(categories);
         }
     }
 }

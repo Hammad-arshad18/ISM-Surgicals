@@ -13,5 +13,6 @@ namespace _072_HammadArshad_Task1.Data
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<_072_HammadArshad_Task1.Models.Login> Login { get; set; }
+        public DbSet<_072_HammadArshad_Task1.Models.Categories> Categories { get; set; }
     }
 }

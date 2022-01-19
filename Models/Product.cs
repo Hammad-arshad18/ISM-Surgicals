@@ -27,5 +27,8 @@ namespace _072_HammadArshad_Task1.Models
         [Display(Name = "Select Product Image")]
         [NotMapped]
         public IFormFile image { get; set; }
+
+        public int CategoriesId { get; set; }
+        public Categories Category { get; set; }
     }
 }

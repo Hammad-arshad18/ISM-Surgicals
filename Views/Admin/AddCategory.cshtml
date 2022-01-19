@@ -1,0 +1,32 @@
+﻿@model _072_HammadArshad_Task1.Models.Categories
+
+@{
+    ViewData["Title"] = "AddCategory";
+}
+
+<section class="category">
+    <div class="container">
+        <div class="text-center">
+            <img src="~/images/category.png" class="img-fluid" />
+            <h1>AddCategory</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-6">
+                <form asp-action="AddCategory">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label asp-for="Category" class="form-text"></label>
+                        <input asp-for="Category" class="form-control" />
+                        <span asp-validation-for="Category" class="text-danger"></span>
+                    </div>
+                    <div class="add-category">
+                        <button class="btn btn-success">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
