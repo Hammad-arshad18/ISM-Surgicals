@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace _072_HammadArshad_Task1.Controllers
@@ -157,7 +159,16 @@ namespace _072_HammadArshad_Task1.Controllers
                 await _db.SaveChangesAsync();
                 ModelState.Clear();
             }
-            return View();
+            return View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(string ? search)
+        {
+            Contact_list = await _db.Contacts.ToListAsync();
+            Product_list = await _db.Products.Where(s=>s.product_name.Contains(search)).ToListAsync();
+            var ModelsTuple = new Tuple<List<Contact>, List<Product>>(Contact_list, Product_list);
+            return View(ModelsTuple);
         }
     }
 }

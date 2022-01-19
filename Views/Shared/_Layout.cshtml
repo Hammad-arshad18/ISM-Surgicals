@@ -57,17 +57,6 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Index" asp-controller="Shop"><i class="fas fa-shopping-bag"></i> Shop Now</a>
                         </li>
-                        @*<li class="nav-item dropdown">
-                                <a class="nav-link" id="navbarDropdown" role="button"
-                                   data-bs-toggle="dropdown hover" aria-expanded="false">
-                                    <i class="fas fa-list"></i> Categories
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Category1</a></li>
-                                    <li><a class="dropdown-item" href="#">Category2</a></li>
-                                    <li><a class="dropdown-item" href="#">Category3</a></li>
-                                </ul>
-                            </li>*@
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Contact" asp-controller="Home"><i class="fas fa-address-book"></i> Contact Us</a>
                         </li>
@@ -112,7 +101,7 @@
         </div>
 
         <div>
-            <a href="#" class="to-top" ><i class="fas fa-angle-up"></i></a>
+            <a href="#" class="to-top"><i class="fas fa-angle-up"></i></a>
         </div>
         <!--Footer Portion-->
         <section class="footer-p">
@@ -151,6 +140,8 @@
     <script src="~/js/bootstrap.bundle.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="~/js/zoomsl.min.js"></script>
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    @RenderSection("scripts", required: false)
     <script>
             AOS.init();
             document.addEventListener("contextmenu", e => e.preventDefault());

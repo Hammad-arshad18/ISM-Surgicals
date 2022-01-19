@@ -67,22 +67,26 @@ namespace _072_HammadArshad_Task1.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    string folder = "images/products/";
-                    product.product_image ="/"+ (folder += Guid.NewGuid().ToString() + product.image.FileName);
-                    string server_folder = Path.Combine(_env.WebRootPath, folder);
-                    using (var filestream=new FileStream(server_folder, FileMode.Create))
-                    {
-                        await product.image.CopyToAsync(filestream);
-                    }
                     Product get_product = await _db.Products.FirstOrDefaultAsync(x => x.Id == product.Id);
                     if (get_product == null)
                     {
                         return NotFound();
                     }
+                    if (product.image != null)
+                    {
+                        string folder = "images/products/";
+                        product.product_image = "/" + (folder += Guid.NewGuid().ToString() + product.image.FileName);
+                        string server_folder = Path.Combine(_env.WebRootPath, folder);
+                        using (var filestream = new FileStream(server_folder, FileMode.Create))
+                        {
+                            await product.image.CopyToAsync(filestream);
+                        }
+                        get_product.product_image = product.product_image;
+                    }
+
                     get_product.product_name = product.product_name;
                     get_product.product_price = product.product_price;
                     get_product.product_desciption = product.product_desciption;
-                    get_product.product_image = product.product_image;
                     _db.Products.Update(get_product);
                     await _db.SaveChangesAsync();
                     return Redirect("/admin");

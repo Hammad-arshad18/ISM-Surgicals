@@ -50,7 +50,25 @@
     @*Products Handling*@
     <section class="products-handle my-3">
         <h1 class="text-center">Products List</h1>
-        <a class="btn btn-outline-primary" asp-controller="admin" asp-action="addproduct">Add Product</a>
+        <div class="search-section">
+            <div class="row">
+                <div class="col-10">
+                    <form asp-controller="Admin" asp-action="Index" method="post" >
+                        <div class="row">
+                            <div class="col-9">
+                                <input type="search" name="search" class="form-control" placeholder="Search" />
+                            </div>
+                            <div class="col-3">
+                                <button style="width:100%" class="btn btn-outline-dark">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-2">
+                    <a class="btn btn-outline-primary" asp-controller="admin" asp-action="addproduct">Add Product</a>
+                </div>
+            </div>
+        </div>
         @if (Model.Item2.Count > 0)
         {
             <div class="table-responsive my-2">

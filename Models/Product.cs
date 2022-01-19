@@ -25,7 +25,6 @@ namespace _072_HammadArshad_Task1.Models
         public string product_image { get; set; }
 
         [Display(Name = "Select Product Image")]
-        [Required]
         [NotMapped]
         public IFormFile image { get; set; }
     }
