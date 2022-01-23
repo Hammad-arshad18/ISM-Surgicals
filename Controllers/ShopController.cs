@@ -25,7 +25,8 @@ namespace _072_HammadArshad_Task1.Controllers
         {
             try
             {
-                products = await _db.Products.ToListAsync();
+                products = await _db.Products.Include(x=>x.Category).ToListAsync();
+                ViewBag.Categories = await _db.Categories.ToListAsync();
                 return View(products);
             }
             catch (System.Exception)

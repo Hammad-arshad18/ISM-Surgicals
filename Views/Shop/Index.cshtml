@@ -4,34 +4,60 @@
     ViewBag.Title = "Products";
 }
 
-<section class="product py-4 my-2">
-    <div class="container">
-        @if (Model.Count > 0)
-        {
-            <div class="text-center">
-                <h1>Feature Products</h1>
-            </div>
-            <div class="row justify-content-center">
-                @foreach (Product p_item in Model)
-                {
-                    <div class="col-10 col-md-4 col-lg-3 col-sm-8 text-center border border-1 shadow-sm">
-                        <img src="@p_item.product_image" alt="Images" class="img-fluid">
-                        <div class="product-text">
-                            <h4>@p_item.product_name</h4>
-                            <p><span class="product-price">$@p_item.product_price</span> Only</p>
-                            <a href="/shop/shopnow/@p_item.Id" class="btn btn-danger"> Shop now</a>
-                        </div>
+<div class="container-fluid">
+    @if (Model.Count > 0)
+    {
+    <div class="online-shop"
+         style="
+          background: url(images/b16.png);
+          background-size: cover;
+          background-repeat: no-repeat;
+        ">
+        <h1 class="text-center os-head">Online Shop</h1>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="categories container">
+                        <h3>Categories</h3>
+                        <h5>Products</h5>
+                        <ul>
+                            @foreach (var items in ViewBag.Categories)
+                            {
+                                <li id="item2"><a href="/shop/@items.Id">@items.Category</a></li>
+                            }
+                        </ul>
                     </div>
-                }
+                </div>
+                <div class="col-lg-9" id="c1">
+                    <div class="row">
+                        @foreach (Product products in Model)
+                        {
+                            <div class="col-lg-3 shadow">
+                                <img src="@products.product_image" alt="Image" class="img-fluid" />
+                                <p>
+                                    @products.product_name
+                                    <a>$@products.product_price</a>
+                                </p>
+                                <div class="detail" style="float: left">
+                                    <h5>@products.Category.Category</h5>
+                                    <h6>Category</h6>
+                                </div>
+                                <div class="btn-sale">
+                                    <a href="/Shop/Shopnow/@products.Id" class="btn btn-success btn-sm">SHOP</a>
+                                </div>
+                            </div>
 
+                        }
+                    </div>
+                </div>
             </div>
-        }
-        else
-        {
-            <div class="text-center py-3">
-                <h1>No Product Available Right Now</h1>
-            </div>
-        }
-
+        </div>
     </div>
-</section>
+    }
+    else { 
+    <h1>PRODUCTS NOT AVAILABLE. WILL LIVE SOONER!!</h1>
+    }
+
+
+</div>
+

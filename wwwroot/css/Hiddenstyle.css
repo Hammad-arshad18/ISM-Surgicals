@@ -749,3 +749,153 @@
     border-color: lightcoral !important;
     box-shadow: 0 0 0 0.25rem rgba(240, 128, 128, 0.1) !important;
 }
+
+
+//Shop Css
+.online-shop {
+    padding: 30px 0;
+}
+
+.online-shop .os-head {
+    color: gray;
+    font-size: 50px;
+    font-weight: 700;
+    padding: 15px 0 30px 0;
+    margin-bottom: 10px 0;
+}
+
+    .online-shop .row {
+        margin: 0 auto;
+    }
+
+        .online-shop .row .col-lg-3 {
+            margin-bottom: 15px;
+        }
+
+            .online-shop .row .col-lg-3 .categories {
+                background-color: lightcoral;
+                color: white;
+                padding: 20px 30px 20px 40px;
+                border-radius: 10px;
+            }
+
+                .online-shop .row .col-lg-3 .categories h3 {
+                    padding: 20px 0;
+                    font-size: 30px;
+                    font-weight: 500;
+                }
+
+                .online-shop .row .col-lg-3 .categories h5 {
+                    padding: 5px 5px;
+                    font-size: 20px;
+                    color: #ddffe7;
+                }
+
+                .online-shop .row .col-lg-3 .categories ul {
+                    padding-left: 0;
+                }
+
+                    .online-shop .row .col-lg-3 .categories ul li {
+                        list-style: none;
+                        padding: 10px;
+                       
+                    }
+                        .online-shop .row .col-lg-3 .categories ul li a {
+                            text-decoration:none;
+                            color: lightcyan;
+                            font-size: 16px;
+                            font-weight: 500;
+                        }
+
+                        .online-shop .row .col-lg-3 .categories ul li:hover {
+                            color: white;
+                            cursor: pointer;
+                        }
+
+
+                    .online-shop .row .col-lg-3 .categories ul .c-active {
+                        background: rgba(255, 255, 255, 0.26);
+                        color: white;
+                        border-radius: 5px;
+                    }
+
+        .online-shop .row .col-lg-9 .row {
+            display: flex;
+            justify-content: center;
+        }
+
+            .online-shop .row .col-lg-9 .row .col-lg-3 {
+                padding: 0;
+                min-width: 280px;
+                margin-right: 15px;
+                margin-bottom: 20px;
+                border-radius: 8px;
+            }
+
+                .online-shop .row .col-lg-9 .row .col-lg-3 img {
+                    width: 100%;
+                }
+
+                .online-shop .row .col-lg-9 .row .col-lg-3 p {
+                    padding: 15px 20px;
+                    color: lightcoral;
+                    font-weight: 500;
+                }
+
+                    .online-shop .row .col-lg-9 .row .col-lg-3 p i {
+                        padding-right: 5px;
+                    }
+
+                    .online-shop .row .col-lg-9 .row .col-lg-3 p span {
+                        color: #999fae;
+                    }
+
+                    .online-shop .row .col-lg-9 .row .col-lg-3 p a {
+                        float: right;
+                        color: lightcoral;
+                        text-decoration: none;
+                    }
+
+                .online-shop .row .col-lg-9 .row .col-lg-3 .detail {
+                    padding: 0 20px 10px 20px;
+                }
+
+                    .online-shop .row .col-lg-9 .row .col-lg-3 .detail h5 {
+                        color: #333333;
+                        font-size: 18px;
+                    }
+
+                    .online-shop .row .col-lg-9 .row .col-lg-3 .detail h6 {
+                        color: rgba(51, 51, 51, 0.7);
+                        font-size: 14px;
+                    }
+
+                .online-shop .row .col-lg-9 .row .col-lg-3 .btn-sale {
+                    padding:15px;
+                    margin:10px 0;
+                    text-align:center;
+                }
+
+                    .online-shop .row .col-lg-9 .row .col-lg-3 .btn-sale a {
+                        padding: 5px 20px;
+                        border: 2px solid lightcoral !important;
+                        color: white;
+                        background-color: lightcoral;
+                        outline: none !important;
+                        box-shadow: none !important;
+                        transition: 0.4s;
+                    }
+
+                        .online-shop .row .col-lg-9 .row .col-lg-3 .btn-sale a:hover {
+                            background-color: white;
+                            color: lightcoral;
+                        }
+
+@media only screen and (max-width: 992px) {
+    .online-shop .row .col-lg-9 .row .col-lg-3 {
+        margin-right: 0 !important;
+    }
+}
+
+
+

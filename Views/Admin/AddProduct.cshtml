@@ -10,7 +10,7 @@
         <h2 class="text-center">Add Product</h2>
         <div class="row justify-content-center">
             <div class="col-10 col-md-6">
-                <form id="addproductform" data-ajax="true" data-ajax-loading="#loader" asp-action="AddProduct" method="post" enctype="multipart/form-data">
+                <form id="addproductform" asp-action="AddProduct" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label asp-for="product_name" class="form-text">Name</label>
                         <input asp-for="product_name" class="form-control">
@@ -28,7 +28,9 @@
                     </div>
                     <div class="form-group">
                         <label class="form-text" asp-for="CategoriesId">Category</label>
-                        <select class="form-select" asp-for="CategoriesId" asp-items="@ViewBag.Categories"></select>
+                        <select class="form-select" asp-for="CategoriesId" asp-items="@ViewBag.Categories">
+                            <option value="@null" selected disabled>Select</option>
+                        </select>
                         <span asp-validation-for="image" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -37,12 +39,7 @@
                         <span asp-validation-for="product_desciption" class="text-danger"></span>
                     </div>
                     <div class="add-product">
-                        <button class="btn btn-success">
-                            <div class="spinner-border spinner-border-sm text-danger" style="display:none;" role="status" id="loader">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                            Add
-                        </button>
+                        <button class="btn btn-success">Add</button>
                     </div>
                 </form>
             </div>
